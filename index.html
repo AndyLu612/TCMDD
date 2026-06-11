@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台灣海岸垃圾數據看板</title>
+    <link rel="stylesheet" href="style.css?v=20260611">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <header class="header">
+        <h1>台灣海岸垃圾數據看板</h1>
+        <p>以數位科技賦能環境教育</p>
+    </header>
+
+    <main class="container">
+        
+        <section id="map-section" class="card">
+            <h2>全台海廢熱點地圖</h2>
+            <div class="map-container">
+                <svg id="tw-map" viewBox="0 0 400 450" width="100%" height="400px">
+                    
+                    <path id="region-north" class="city-path" data-name="北部海岸 (新北/基隆)" data-trash="120" 
+                          d="M 240,20 L 270,30 L 290,60 L 270,90 L 220,100 L 210,60 Z" />
+                          
+                    <path id="region-east" class="city-path" data-name="東部海岸 (花蓮/台東)" data-trash="230" 
+                          d="M 270,90 L 290,60 L 310,100 L 300,180 L 260,280 L 230,330 L 200,280 L 220,180 L 220,100 Z" />
+                          
+                    <path id="region-central" class="city-path" data-name="中部海岸 (台中/彰化)" data-trash="450" 
+                          d="M 210,60 L 220,100 L 220,180 L 150,200 L 120,150 L 150,90 Z" />
+                          
+                    <path id="region-south" class="city-path" data-name="西南部海岸 (台南/高雄)" data-trash="890" 
+                          d="M 220,180 L 200,280 L 150,310 L 110,250 L 150,200 Z" />
+                          
+                    <path id="region-pingtung" class="city-path" data-name="恆春半島 (屏東)" data-trash="310" 
+                          d="M 200,280 L 230,330 L 210,380 L 180,410 L 160,380 L 150,310 Z" />
+                          
+                </svg>
+                
+                <div id="map-info" class="map-info-box">
+                    <p>💡 點擊上方地圖區域，查看海廢數據</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="chart-section" class="card">
+            <h2>海廢數據分析</h2>
+            
+            <div class="chart-controls">
+                <button id="btn-composition" class="btn active">垃圾成分比例 (圓餅圖)</button>
+                <button id="btn-trend" class="btn">各區域垃圾量 (長條圖)</button>
+            </div>
+
+            <div class="chart-container" style="position: relative; height:400px; width:100%">
+                <canvas id="debrisChart"></canvas>
+            </div>
+        </section>
+
+        <section id="quiz-section" class="card">
+            <h2>海廢冷知識挑戰</h2>
+            <div id="quiz-container" class="quiz-container">
+                <div class="quiz-progress">
+                    <span id="quiz-progress-text">第 1 / 3 題</span>
+                    <div class="quiz-progress-track">
+                        <div id="quiz-progress-bar" class="quiz-progress-bar"></div>
+                    </div>
+                </div>
+
+                <h3 id="question-text">題目載入中...</h3>
+                
+                <div id="options-container" class="options-container"></div>
+                
+                <div id="feedback-message" class="feedback-message"></div>
+                
+                <button id="next-btn" class="btn" style="display: none; margin-top: 1.5rem;">下一題</button>
+            </div>
+        </section>
+
+        <section id="action-section" class="card">
+            <h2>個人減塑計分板</h2>
+            <div class="action-container" style="text-align: center; padding: 1rem;">
+                <h3 id="total-score" style="color: #38bdf8; font-size: 3rem; margin-bottom: 0.5rem;">0.0 kg</h3>
+                <p style="color: #64748b; margin-bottom: 2rem;">今日減塑碳排貢獻</p>
+                <p id="action-message" class="action-message">勾選你今天完成的減塑行動，看看能累積多少貢獻。</p>
+                
+                <div class="task-list">
+                    <label class="task-item">
+                        <input type="checkbox" class="task-checkbox" value="0.5">
+                        <span>🥤 自備環保杯 (減碳 0.5 kg)</span>
+                    </label>
+                    <label class="task-item">
+                        <input type="checkbox" class="task-checkbox" value="0.2">
+                        <span>🚫 不使用塑膠吸管 (減碳 0.2 kg)</span>
+                    </label>
+                    <label class="task-item">
+                        <input type="checkbox" class="task-checkbox" value="1.0">
+                        <span>🛍️ 攜帶環保購物袋 (減碳 1.0 kg)</span>
+                    </label>
+                    <label class="task-item">
+                        <input type="checkbox" class="task-checkbox" value="0.8">
+                        <span>🍴 使用環保餐具 (減碳 0.8 kg)</span>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <section id="source-section" class="source-note">
+            <h2>資料說明</h2>
+            <p>本看板為環境教育展示用途，地圖區域與海廢數據為模擬資料，適合用於課堂簡報、互動展示與議題討論。</p>
+        </section>
+
+    </main>
+
+    <script src="main.js?v=20260611-2"></script>
+</body>
+</html>

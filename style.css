@@ -1,0 +1,312 @@
+/* ====================
+   基礎設定與全域樣式
+   ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue", Arial, "微軟正黑體", sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* ====================
+   版面排版設計
+   ==================== */
+/* 頂部導覽列 */
+.header {
+    background-color: #ffffff;
+    padding: 2.5rem 1rem;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+}
+
+.header h1 {
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.header p {
+    color: #64748b;
+    font-weight: 500;
+}
+
+/* 內容容器置中 */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* 極簡風卡片設計 */
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.card h2 {
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 0.8rem;
+}
+
+/* ====================
+   互動地圖專屬樣式
+   ==================== */
+.map-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* 縣市 SVG 區塊預設外觀 */
+.city-path {
+    fill: #cbd5e1; 
+    stroke: #ffffff; 
+    stroke-width: 3;
+    cursor: pointer;
+    transition: fill 0.3s ease, transform 0.2s ease; 
+}
+
+/* 滑鼠懸停效果 */
+.city-path:hover {
+    fill: #94a3b8; 
+}
+
+/* 被點擊後的高亮效果 */
+.city-path.active {
+    fill: #38bdf8; 
+}
+
+/* 點擊後的資訊面板 */
+.map-info-box {
+    width: 100%;
+    max-width: 400px;
+    background-color: #f8fafc;
+    border-left: 5px solid #38bdf8;
+    padding: 1.5rem;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.map-info-box h3 {
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+}
+
+.pollution-badge {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.level-low {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.level-medium {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.level-medium-high {
+    background-color: #ffedd5;
+    color: #9a3412;
+}
+
+.level-high {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.map-info-box strong {
+    color: #ef4444; 
+    font-size: 1.2rem;
+}
+/* ====================
+   模組二：動態圖表樣式
+   ==================== */
+.chart-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    background-color: #f1f5f9;
+    color: #475569;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #e2e8f0;
+}
+
+/* 按鈕被選中時的樣式 */
+.btn.active {
+    background-color: #38bdf8;
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(56, 189, 248, 0.3);
+}
+/* ====================
+   模組三：互動測驗樣式
+   ==================== */
+.quiz-container {
+    text-align: center;
+    padding: 1rem;
+}
+
+.quiz-progress {
+    max-width: 400px;
+    margin: 0 auto 1.5rem;
+    text-align: left;
+}
+
+#quiz-progress-text {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #64748b;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.quiz-progress-track {
+    height: 10px;
+    overflow: hidden;
+    background-color: #e2e8f0;
+    border-radius: 999px;
+}
+
+.quiz-progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #38bdf8;
+    border-radius: 999px;
+    transition: width 0.25s ease;
+}
+
+#question-text {
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* 預設選項按鈕樣式 */
+.option-btn {
+    background-color: #f8fafc;
+    border: 2px solid #e2e8f0;
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #333;
+    transition: all 0.2s ease;
+}
+
+.option-btn:hover {
+    background-color: #e2e8f0;
+}
+
+/* 答對時的樣式 (綠色) */
+.option-btn.correct {
+    background-color: #dcfce7;
+    border-color: #22c55e;
+    color: #166534;
+    font-weight: bold;
+}
+
+/* 答錯時的樣式 (紅色) */
+.option-btn.wrong {
+    background-color: #fee2e2;
+    border-color: #ef4444;
+    color: #991b1b;
+}
+
+/* 解答與冷知識回饋區 */
+.feedback-message {
+    margin-top: 1.5rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    min-height: 3rem; /* 預留高度避免畫面跳動 */
+}
+/* ==================== 模組四：減塑計分板樣式 ==================== */
+.action-message {
+    max-width: 440px;
+    margin: -1rem auto 1.5rem;
+    color: #475569;
+    font-weight: 600;
+}
+
+.task-list { 
+    display: flex; 
+    flex-direction: column; /* 👈 這個屬性是讓清單「由上往下」垂直排列的關鍵！ */
+    gap: 1rem; 
+    max-width: 400px; 
+    margin: 0 auto; 
+    text-align: left; 
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #f8fafc;
+    padding: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid #e2e8f0;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.task-item:hover { background-color: #f1f5f9; border-color: #cbd5e1; }
+.task-checkbox { width: 1.5rem; height: 1.5rem; cursor: pointer; accent-color: #38bdf8; }
+.task-item span { font-size: 1.1rem; color: #334155; font-weight: 500; }
+
+.source-note {
+    padding: 1.5rem 0 3rem;
+    color: #64748b;
+    text-align: center;
+}
+
+.source-note h2 {
+    margin-bottom: 0.5rem;
+    color: #334155;
+    font-size: 1.2rem;
+}
+
+.source-note p {
+    max-width: 680px;
+    margin: 0 auto;
+    font-size: 0.95rem;
+}
