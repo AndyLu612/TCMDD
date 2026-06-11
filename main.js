@@ -85,7 +85,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                    legend: { position: 'bottom' },
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            generateLabels: chart => {
+                                const defaultLabels = Chart.defaults.plugins.legend.labels.generateLabels(chart);
+                                return defaultLabels.map(label => ({
+                                    ...label,
+                                    fillStyle: '#38bdf8',
+                                    strokeStyle: '#0284c7'
+                                }));
+                            }
+                        }
+                    },
                     tooltip: {
                         callbacks: {
                             label: context => `${context.parsed.y} 噸`
